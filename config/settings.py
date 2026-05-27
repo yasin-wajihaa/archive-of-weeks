@@ -1,5 +1,6 @@
 from pathlib import Path
-import environ, os
+import environ
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,10 +23,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'courses.apps.CoursesConfig',
-    'terms.apps.TermsConfig',
-    'progress.apps.ProgressConfig',
     'users.apps.UsersConfig',
+    'terms.apps.TermsConfig',
+    'courses.apps.CoursesConfig',
+    'progress.apps.ProgressConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -110,3 +111,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+MEDIA_ROOT=BASE_DIR
+MEDIA_URL='/media/'
