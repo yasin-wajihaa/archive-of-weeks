@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import date
-
+from django.core.exceptions import ValidationError
 
 def current_yr():
     return str(date.today().year)[2:]
@@ -26,3 +26,9 @@ class Term(models.Model):
         unique_together = [
             ['yr', 'code']
         ]
+
+    def clean(self):
+        if self.end_date < self.start_date:
+            raise ValidationError (
+                'End date of the term can not be earlier than the start date.'
+            )
