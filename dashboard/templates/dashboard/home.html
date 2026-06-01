@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'dashboard/home.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="aow-root">
+    <!-- SIDEBAR -->
+    <div class="aow-sidebar">
+      <div class="aow-logo">Archive<br>of Weeks.</div>
+
+      <div class="aow-nav-item active">
+        <i class="ti ti-layout-dashboard"></i> Dashboard
+      </div>
+      <div class="aow-nav-item">
+        <i class="ti ti-books"></i> Courses
+      </div>
+      <div class="aow-nav-item">
+        <i class="ti ti-chart-line"></i> Progress
+      </div>
+      <div class="aow-nav-item">
+        <i class="ti ti-calendar-event"></i> Schedule
+      </div>
+      <div class="aow-nav-item">
+        <i class="ti ti-note"></i> Notes
+      </div>
+
+      <div class="aow-user">
+        <div class="aow-avatar">W</div>
+        <div>
+          <div class="aow-username">Wajihaa</div>
+          <div class="aow-role">IIT Madras</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="aow-main">
+      <!-- Top Bar -->
+      <div class="aow-topbar">
+        <div>
+          <div class="aow-season">Summer 2026</div>
+          <div><span class="aow-week-tag">Week 05 of 12</span></div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:11px;color:rgba(245,237,224,0.35);margin-bottom:3px">Today</div>
+          <div style="font-size:13px;font-weight:500;color:rgba(245,237,224,0.7)">Mon, June 1</div>
+        </div>
+      </div>
+
+      <!-- Season Progress -->
+      <div class="aow-progress-section">
+        <div class="aow-progress-header">
+          <span class="aow-progress-label">Summer Progress</span>
+          <span class="aow-progress-pct">42%</span>
+        </div>
+        <div class="aow-track">
+          <div class="aow-fill"></div>
+        </div>
+        <div class="aow-week-markers">
+          <span class="aow-wm">W1</span>
+          <span class="aow-wm">W3</span>
+          <span class="aow-wm now">W5 ◆</span>
+          <span class="aow-wm">W7</span>
+          <span class="aow-wm">W9</span>
+          <span class="aow-wm">W12</span>
+        </div>
+      </div>
+
+      <!-- Courses -->
+      <div class="aow-section-label">Courses</div>
+      <div class="aow-courses-grid">
+
+        <div class="aow-course-card card-dbms">
+          <div class="aow-card-tag">Core</div>
+          <div class="aow-card-title">Database & Management System</div>
+          <div class="aow-card-progress"><div class="aow-card-fill"></div></div>
+          <div class="aow-card-footer">
+            <span class="aow-card-pct">60%</span>
+            <span class="aow-card-badge badge-active">Active</span>
+          </div>
+        </div>
+
+        <div class="aow-course-card card-mad">
+          <div class="aow-card-tag">Development</div>
+          <div class="aow-card-title">Modern App Development I</div>
+          <div class="aow-card-progress"><div class="aow-card-fill"></div></div>
+          <div class="aow-card-footer">
+            <span class="aow-card-pct">45%</span>
+            <span class="aow-card-badge badge-new">In Progress</span>
+          </div>
+        </div>
+
+        <div class="aow-course-card card-ml">
+          <div class="aow-card-tag">Specialization</div>
+          <div class="aow-card-title">ML Foundation</div>
+          <div class="aow-card-progress"><div class="aow-card-fill"></div></div>
+          <div class="aow-card-footer">
+            <span class="aow-card-pct">30%</span>
+            <span class="aow-card-badge badge-ongoing">Ongoing</span>
+          </div>
+        </div>
+
+        <div class="aow-course-card card-dsa">
+          <div class="aow-card-tag">Core</div>
+          <div class="aow-card-title">DSA in Python</div>
+          <div class="aow-card-progress"><div class="aow-card-fill"></div></div>
+          <div class="aow-card-footer">
+            <span class="aow-card-pct">75%</span>
+            <span class="aow-card-badge badge-strong">Strong</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Stats -->
+      <div class="aow-stats-row">
+        <div class="aow-stat">
+          <div class="aow-stat-val">4</div>
+          <div class="aow-stat-lbl">Active courses</div>
+        </div>
+        <div class="aow-stat">
+          <div class="aow-stat-val">W5</div>
+          <div class="aow-stat-lbl">Current week</div>
+        </div>
+        <div class="aow-stat">
+          <div class="aow-stat-val">7</div>
+          <div class="aow-stat-lbl">Weeks remaining</div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
