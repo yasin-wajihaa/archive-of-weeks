@@ -45,10 +45,18 @@ project_prerequisite_courses = [
     ('DLGAP', 'DLGA')
 ]
 
+diploma_tag_choices={
+    'Diploma': 'Diploma',
+    'Diploma in Data Science': 'Diploma in Data Science',
+    'Diploma in Programming': 'Diploma in Programming'
+}
+
 class Course(models.Model):
     term = models.ForeignKey(Term, on_delete = models.CASCADE)
 
     name = models.CharField(max_length = 5, choices = course_choices)
+
+    tag = models.CharField(max_length= 50, choices= diploma_tag_choices)
 
     def __str__(self):
         return f'{self.term}-{self.name}'
@@ -64,6 +72,8 @@ class Project(models.Model):
     term = models.ForeignKey(Term, on_delete = models.CASCADE)
 
     name = models.CharField(max_length = 6, choices = project_choices)
+
+    tag = models.CharField(max_length=50, choices= diploma_tag_choices)
 
     def __str__(self):
         return f'{self.term}-{self.name}'
