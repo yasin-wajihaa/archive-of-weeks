@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'dashboard/base.html' %}
 {% load static %}
 {% block link %}
     <link rel="stylesheet" href="{% static 'dashboard/home.css' %}">
@@ -41,19 +41,20 @@
       <!-- Top Bar -->
       <div class="aow-topbar">
         <div>
-          <div class="aow-season">Summer 2026</div>
-          <div><span class="aow-week-tag">Week 05 of 12</span></div>
+          <div class="aow-season">{{ season }} {{ year }} </div>
+          <div class="aow-season-tag">{{ term }} </div>
+          <div><span class="aow-week-tag">Week {{ week|stringformat:"02d" }} of 12</span></div>
         </div>
         <div style="text-align:right">
           <div style="font-size:11px;color:rgba(245,237,224,0.35);margin-bottom:3px">Today</div>
-          <div style="font-size:13px;font-weight:500;color:rgba(245,237,224,0.7)">Mon, June 1</div>
+          <div style="font-size:13px;font-weight:500;color:rgba(245,237,224,0.7)">{{ today_teehee }}</div>
         </div>
       </div>
 
       <!-- Season Progress -->
       <div class="aow-progress-section">
         <div class="aow-progress-header">
-          <span class="aow-progress-label">Summer Progress</span>
+          <span class="aow-progress-label">{{ term }} Progress</span>
           <span class="aow-progress-pct">42%</span>
         </div>
         <div class="aow-track">
@@ -122,11 +123,11 @@
           <div class="aow-stat-lbl">Active courses</div>
         </div>
         <div class="aow-stat">
-          <div class="aow-stat-val">W5</div>
+          <div class="aow-stat-val">W{{ week }}</div>
           <div class="aow-stat-lbl">Current week</div>
         </div>
         <div class="aow-stat">
-          <div class="aow-stat-val">7</div>
+          <div class="aow-stat-val">{{ week_remaining }}</div>
           <div class="aow-stat-lbl">Weeks remaining</div>
         </div>
       </div>
