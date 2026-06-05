@@ -1,6 +1,7 @@
 from datetime import date
 from .models import Term
 from progress.models import Progress
+from courses.models import Course, Project
 from django.db.models import Max
 
 def current_term():
@@ -28,3 +29,13 @@ def current_season():
 def current_week():
     week = Progress.objects.aggregate(Max("week")) or 1
     return week['week__max']
+
+def active_courses():
+    term = current_term()
+    active= Course.objects.filter(term=term)
+    return active
+
+def active_projects():
+    term = current_term()
+    active = Project.objects.filter(term=term)
+    return active

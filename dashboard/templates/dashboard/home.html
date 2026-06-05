@@ -72,58 +72,31 @@
 
       <!-- Courses -->
       <div class="aow-section-label">Courses</div>
+
       <div class="aow-courses-grid">
 
-        <div class="aow-course-card card-dbms">
-          <div class="aow-card-tag">Core</div>
-          <div class="aow-card-title">Database & Management System</div>
-          <div class="aow-card-progress"><div class="aow-card-fill"></div></div>
-          <div class="aow-card-footer">
-            <span class="aow-card-pct">60%</span>
-            <span class="aow-card-badge badge-active">Active</span>
+        {% for course in active_courses %}
+          <div class="aow-course-card card-dbms">
+            <div class="aow-card-tag">{{ course.tag }}</div>
+            <div class="aow-card-title">{{ course.name }}</div>
+            <div class="aow-card-progress"><div class="aow-card-fill"></div></div>
+            <div class="aow-card-footer">
+              <span class="aow-card-pct">60%</span>
+              <span class="aow-card-badge badge-active">Active</span>
+            </div>
           </div>
-        </div>
-
-        <div class="aow-course-card card-mad">
-          <div class="aow-card-tag">Development</div>
-          <div class="aow-card-title">Modern App Development I</div>
-          <div class="aow-card-progress"><div class="aow-card-fill"></div></div>
-          <div class="aow-card-footer">
-            <span class="aow-card-pct">45%</span>
-            <span class="aow-card-badge badge-new">In Progress</span>
-          </div>
-        </div>
-
-        <div class="aow-course-card card-ml">
-          <div class="aow-card-tag">Specialization</div>
-          <div class="aow-card-title">ML Foundation</div>
-          <div class="aow-card-progress"><div class="aow-card-fill"></div></div>
-          <div class="aow-card-footer">
-            <span class="aow-card-pct">30%</span>
-            <span class="aow-card-badge badge-ongoing">Ongoing</span>
-          </div>
-        </div>
-
-        <div class="aow-course-card card-dsa">
-          <div class="aow-card-tag">Core</div>
-          <div class="aow-card-title">DSA in Python</div>
-          <div class="aow-card-progress"><div class="aow-card-fill"></div></div>
-          <div class="aow-card-footer">
-            <span class="aow-card-pct">75%</span>
-            <span class="aow-card-badge badge-strong">Strong</span>
-          </div>
-        </div>
-
+        {% endfor %}
       </div>
+
 
       <!-- Stats -->
       <div class="aow-stats-row">
         <div class="aow-stat">
-          <div class="aow-stat-val">3</div>
+          <div class="aow-stat-val">{{ active_courses_no }} </div>
           <div class="aow-stat-lbl">Active courses</div>
         </div>
         <div class="aow-stat">
-          <div class="aow-stat-val">1</div>
+          <div class="aow-stat-val">{{ active_projects_no }}</div>
           <div class="aow-stat-lbl">Active projects</div>
         </div>
         <div class="aow-stat">
