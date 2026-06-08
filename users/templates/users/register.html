@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Archive-of-Weeks{% endblock %}</title>
+</head>
+<body>
+    <div>
+        {% block content%}
+            <form method="POST">
+                {% csrf_token %}
+                {{ form }}
+            </form>
+
+        {% endblock %}
+    </div>
+
+</body>
