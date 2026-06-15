@@ -1,24 +1,53 @@
+{% load static %}
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Archive-of-Weeks{% endblock %}</title>
+    {% block link %}
+        <link rel='stylesheet' href="{% static 'users/register.css' %}">
+    {% endblock %}
 </head>
 <body>
-    <div>
+    <div class="main-div">
         {% block content%}
+        <h2>Create Account</h2>
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div>
                     {{ form.errors }}
-                    {{ form }}
+                </div>
+                <div class='fields'>
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                </div>
+                <div class='fields'>
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                </div>
+                <div class='fields'>
+                    {{ form.password1.label_tag }}
+                    {{ form.password1 }}
+                </div>
+                <div class='fields'>
+                    {{ form.password2.label_tag }}
+                    {{ form.password2 }}
+                </div>
+                <div class='fields'>
+                    {{ form.pfp.label_tag }}
+                    {{ form.pfp }}
                 </div>
                 <div>
                     <button type="submit">submit</button>
                 </div>
             </form>
+            <div id="login-div">
+                    Already have an account? <a href="#">Login</a>
+            </div>
 
 
         {% endblock %}
     </div>
 
+
 </body>
+</html>
