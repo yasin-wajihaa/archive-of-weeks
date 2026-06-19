@@ -5,7 +5,7 @@ from django.db import transaction
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from .forms import UserRegisterForm
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 
 def index(request):
     return HttpResponse('on the users yeah!')
@@ -29,5 +29,8 @@ class UserLoginView(LoginView):
     template_name = 'users/login.html'
     next_page = '/'
 
+
+class UserLogoutView(LogoutView):
+    next_page = '/'
 
 
