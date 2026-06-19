@@ -1,5 +1,3 @@
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic.edit import FormView
 from .models import UserProfile
@@ -7,6 +5,7 @@ from django.db import transaction
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from .forms import UserRegisterForm
+from django.contrib.auth.views import LoginView
 
 def index(request):
     return HttpResponse('on the users yeah!')
@@ -23,6 +22,12 @@ class RegisterView(SuccessMessageMixin, FormView):
         pfp = form.cleaned_data['pfp']
         UserProfile.objects.create(pfp=pfp, user=user)
 
-
         return super().form_valid(form)
+
+
+class UserLoginView(LoginView):
+    template_name = 'users/login.html'
+    next_page = '/'
+
+
 
