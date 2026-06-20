@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Archive-of-Weeks{% endblock %}</title>
+    {% block link %}
+        <link rel='stylesheet' href="{% static 'users/profile.css' %}">
+    {% endblock %}
+</head>
+<body>
+    <div class="main-div">
+        {% block content%}
+            <h2>{{ user.username }}</h2>
+            <p>Email: {{ user.email }}</p>
+            {% if user_profile.pfp %}
+                <img src='{{ user_profile.pfp.url }}'>
+            {% endif %}
+
+            <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Log Out</button>
+            </form>
+        {% endblock %}
+    </div>
+</body>
+</html>

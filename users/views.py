@@ -2,10 +2,11 @@ from django.http import HttpResponse
 from django.views.generic.edit import FormView
 from .models import UserProfile
 from django.db import transaction
-from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from .forms import UserRegisterForm
 from django.contrib.auth.views import LoginView, LogoutView
+from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def index(request):
     return HttpResponse('on the users yeah!')
@@ -33,4 +34,13 @@ class UserLoginView(LoginView):
 class UserLogoutView(LogoutView):
     next_page = '/'
 
+
+class UserProfileView(LoginRequiredMixin, TemplateView):
+    template_name = 'users/profile.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_profile = UserProfile.objects.get(user=self.request.user)
+        context['user_profile'] = user_profile
+        return context
 
