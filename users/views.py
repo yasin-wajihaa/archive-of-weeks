@@ -14,7 +14,7 @@ def index(request):
 class RegisterView(SuccessMessageMixin, FormView):
     form_class = UserRegisterForm
     template_name = 'users/register.html'
-    success_url = '/'
+    success_url = '/users/login/'
     success_message = 'User registered successfully!'
 
     @transaction.atomic
@@ -26,9 +26,10 @@ class RegisterView(SuccessMessageMixin, FormView):
         return super().form_valid(form)
 
 
-class UserLoginView(LoginView):
+class UserLoginView(SuccessMessageMixin, LoginView):
     template_name = 'users/login.html'
     next_page = '/'
+    success_message = 'You are logged in!'
 
 
 class UserLogoutView(LogoutView):
