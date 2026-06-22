@@ -28,7 +28,7 @@ h2 {
 .main-div {
     /* max-width: 500px; */
     padding: 2rem 2rem 1rem;
-    background: #e0cbb94d;
+    background: #e0cbb955;
     color: #e0cbb9;
     border-radius: 10px;
     border: 1px solid #e0cbb966;
@@ -44,19 +44,19 @@ h2 {
     margin-bottom: 0.4rem;
 }
 
-#login-div {
+#reg-div {
     color: #e0cbb9;
     font-size: 0.75rem;
     margin: 1rem auto 0;
     text-align: center;
 }
 
-#login-div a {
+#reg-div a {
     color: #a8b58a;
     text-decoration: none;
 }
 
-#login-div a:hover {
+#reg-div a:hover {
     text-decoration: underline;
 }
 
