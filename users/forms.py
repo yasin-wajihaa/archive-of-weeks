@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
-    pfp = forms.ImageField()
+    pfp = forms.ImageField(required=False,label='Profile Picture')
 
     class Meta:
         model = User
