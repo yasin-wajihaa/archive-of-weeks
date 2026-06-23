@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Archive-of-Weeks{% endblock %}</title>
+    {% block link %}
+        <link rel="stylesheet" href="{% static 'home/home.css' %}">
+    {% endblock %}
+</head>
+<body>
+    <div>
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" >
+            {{ message }}
+        </div>
+        {% endfor %}
+
+        {% block content%}
+            <div id="header">
+                <h2>Archive of Weeks</h2>
+
+
+                <a class='header-link' href="{% url 'login' %}">Log In</a>
+                <a class='header-link' href="{% url 'register' %}">Register</a>
+
+            </div>
+        {% endblock %}
+    </div>
+
+</body>
