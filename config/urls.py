@@ -5,7 +5,8 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('', include('dashboard.urls')),
+    path('', include('home.urls')),
+    path('dashboard/', include('dashboard.urls')),
     path('terms/', include('terms.urls')),
     path('courses/', include('courses.urls')),
     path('progress/', include('progress.urls')),

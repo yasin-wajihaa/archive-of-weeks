@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from terms import utils
 
 
-def home(request):
+def dashboard(request):
     term = utils.current_term()
     year = utils.current_year()
     season = utils.current_season()
