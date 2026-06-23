@@ -28,7 +28,7 @@ class RegisterView(SuccessMessageMixin, FormView):
 
 class UserLoginView(SuccessMessageMixin, LoginView):
     template_name = 'users/login.html'
-    next_page = '/'
+    next_page = '/dashboard/'
     success_message = 'You are logged in!'
 
 
